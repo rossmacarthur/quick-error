@@ -1,14 +1,16 @@
 [package]
-name = "quick-error"
-description = """
-    A macro which makes error types pleasant to write.
-"""
+name = "quick-error2"
+description = "A macro which makes error types pleasant to write."
 license = "MIT/Apache-2.0"
 version = "2.0.0"
 keywords = ["macro", "error", "type", "enum"]
-authors = ["Paul Colomiets <paul@colomiets.name>", "Colin Kiegel <kiegel@gmx.de>"]
-homepage = "http://github.com/tailhook/quick-error"
-repository = "http://github.com/tailhook/quick-error"
-documentation = "http://docs.rs/quick-error"
+authors = [
+    "Paul Colomiets <paul@colomiets.name>",
+    "Colin Kiegel <kiegel@gmx.de>",
+    "Ross MacArthur <ross@macarthur.io>"
+]
+homepage = "http://github.com/rossmacarthur/quick-error2"
+repository = "http://github.com/rossmacarthur/quick-error2"
+documentation = "http://docs.rs/quick-error2"
 categories = ["rust-patterns"]
 edition = "2018"
