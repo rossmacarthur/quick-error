@@ -363,11 +363,11 @@ macro_rules! quick_error {
         $(#[$meta])*
         $($strdef)* $strname ( $internal );
 
-        impl std::fmt::Display for $strname {
-            fn fmt(&self, f: &mut std::fmt::Formatter)
-                -> std::fmt::Result
+        impl ::std::fmt::Display for $strname {
+            fn fmt(&self, f: &mut ::std::fmt::Formatter)
+                -> ::std::fmt::Result
             {
-                std::fmt::Display::fmt(&self.0, f)
+                ::std::fmt::Display::fmt(&self.0, f)
             }
         }
 
@@ -377,7 +377,7 @@ macro_rules! quick_error {
             }
         }
 
-        impl std::error::Error for $strname {
+        impl ::std::error::Error for $strname {
             fn description(&self) -> &str {
                 self.0.description()
             }
@@ -641,8 +641,10 @@ macro_rules! quick_error {
         #[allow(renamed_and_removed_lints)]
         #[allow(unused_doc_comment)]
         #[allow(unused_doc_comments)]
-        impl std::fmt::Display for $name {
-            fn fmt(&self, fmt: &mut std::fmt::Formatter) -> std::fmt::Result {
+        impl ::std::fmt::Display for $name {
+            fn fmt(&self, fmt: &mut ::std::fmt::Formatter)
+                -> ::std::fmt::Result
+            {
                 match *self {
                     $(
                         $(#[$imeta])*
@@ -664,7 +666,7 @@ macro_rules! quick_error {
         #[allow(renamed_and_removed_lints)]
         #[allow(unused_doc_comment)]
         #[allow(unused_doc_comments)]
-        impl std::error::Error for $name {
+        impl ::std::error::Error for $name {
             fn description(&self) -> &str {
                 match *self {
                     $(
@@ -708,17 +710,17 @@ macro_rules! quick_error {
     (FIND_DISPLAY_IMPL $name:ident $item:ident: $imode:tt
         { display($self_:tt) -> ($( $exprs:tt )*) $( $tail:tt )*}
     ) => {
-        |quick_error!(IDENT $self_): &$name, f: &mut std::fmt::Formatter| { write!(f, $( $exprs )*) }
+        |quick_error!(IDENT $self_): &$name, f: &mut ::std::fmt::Formatter| { write!(f, $( $exprs )*) }
     };
     (FIND_DISPLAY_IMPL $name:ident $item:ident: $imode:tt
         { display($pattern:expr) $( $tail:tt )*}
     ) => {
-        |_, f: &mut std::fmt::Formatter| { write!(f, $pattern) }
+        |_, f: &mut ::std::fmt::Formatter| { write!(f, $pattern) }
     };
     (FIND_DISPLAY_IMPL $name:ident $item:ident: $imode:tt
         { display($pattern:expr, $( $exprs:tt )*) $( $tail:tt )*}
     ) => {
-        |_, f: &mut std::fmt::Formatter| { write!(f, $pattern, $( $exprs )*) }
+        |_, f: &mut ::std::fmt::Formatter| { write!(f, $pattern, $( $exprs )*) }
     };
     (FIND_DISPLAY_IMPL $name:ident $item:ident: $imode:tt
         { $t:tt $( $tail:tt )*}
@@ -730,8 +732,8 @@ macro_rules! quick_error {
     (FIND_DISPLAY_IMPL $name:ident $item:ident: $imode:tt
         { }
     ) => {
-        |self_: &$name, f: &mut std::fmt::Formatter| {
-            write!(f, "{}", std::error::Error::description(self_))
+        |self_: &$name, f: &mut ::std::fmt::Formatter| {
+            write!(f, "{}", ::std::error::Error::description(self_))
         }
     };
     (FIND_DESCRIPTION_IMPL $item:ident: $imode:tt $me:ident $fmt:ident
@@ -1294,8 +1296,8 @@ mod test {
                     -> (p.as_ref().to_path_buf(), e)
                 display("Path error at {:?}: {}", path, err)
             }
-            Utf8Str(s: String, err: std::io::Error) {
-                context(s: AsRef<str>, e: std::io::Error)
+            Utf8Str(s: String, err: ::std::io::Error) {
+                context(s: AsRef<str>, e: ::std::io::Error)
                     -> (s.as_ref().to_string(), e)
                 display("Str error {:?}: {}", s, err)
             }
@@ -1339,7 +1341,7 @@ mod test {
     #[test]
     fn path_context() {
         fn parse_utf<P: AsRef<Path>>(s: &[u8], p: P) -> Result<(), ContextErr> {
-            std::str::from_utf8(s).context(p)?;
+            ::std::str::from_utf8(s).context(p)?;
             Ok(())
         }
         let etext = parse_utf(b"a\x80\x80", "/etc").unwrap_err().to_string();
