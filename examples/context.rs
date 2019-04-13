@@ -1,4 +1,4 @@
-use quick_error::{quick_error, ResultExt};
+use quick_error2::{quick_error, ResultExt};
 use std::env;
 use std::fs::File;
 use std::io::{self, stderr, Read, Write};

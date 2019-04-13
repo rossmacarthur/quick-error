@@ -4,7 +4,7 @@
 //! Minimum type is like this:
 //!
 //! ```rust
-//! #[macro_use] extern crate quick_error;
+//! #[macro_use] extern crate quick_error2;
 //! # fn main() {}
 //!
 //! quick_error! {
@@ -25,7 +25,7 @@
 //! You may add arbitrary parameters to any struct variant:
 //!
 //! ```rust
-//! # #[macro_use] extern crate quick_error;
+//! # #[macro_use] extern crate quick_error2;
 //! # fn main() {}
 //! #
 //! quick_error! {
@@ -53,7 +53,7 @@
 //! To define description simply add `description(value)` inside braces:
 //!
 //! ```rust
-//! # #[macro_use] extern crate quick_error;
+//! # #[macro_use] extern crate quick_error2;
 //! # fn main() {}
 //! #
 //! quick_error! {
@@ -76,7 +76,7 @@
 //! example:
 //!
 //! ```rust
-//! # #[macro_use] extern crate quick_error;
+//! # #[macro_use] extern crate quick_error2;
 //! # fn main() {}
 //! #
 //! quick_error! {
@@ -104,7 +104,7 @@
 //! for example:
 //!
 //! ```rust
-//! # #[macro_use] extern crate quick_error;
+//! # #[macro_use] extern crate quick_error2;
 //! # fn main() {}
 //! #
 //! quick_error! {
@@ -124,7 +124,7 @@
 //! `display(x) -> (pattern, ..args)`, where `x` sets the name of the reference.
 //!
 //! ```rust
-//! # #[macro_use] extern crate quick_error;
+//! # #[macro_use] extern crate quick_error2;
 //! # fn main() {}
 //! #
 //! use std::error::Error; // put methods like `description()` of this trait into scope
@@ -148,7 +148,7 @@
 //! For example, to convert simple wrapper use bare `from()`:
 //!
 //! ```rust
-//! # #[macro_use] extern crate quick_error;
+//! # #[macro_use] extern crate quick_error2;
 //! # fn main() {}
 //! #
 //! quick_error! {
@@ -167,7 +167,7 @@
 //! the `from(type)` form:
 //!
 //! ```rust
-//! # #[macro_use] extern crate quick_error;
+//! # #[macro_use] extern crate quick_error2;
 //! # fn main() {}
 //! #
 //! quick_error! {
@@ -185,7 +185,7 @@
 //! value conversions:
 //!
 //! ```rust
-//! # #[macro_use] extern crate quick_error;
+//! # #[macro_use] extern crate quick_error2;
 //! # fn main() {}
 //! #
 //! quick_error! {
@@ -210,12 +210,12 @@
 //! the error. We need a longer example to demonstrate this:
 //!
 //! ```rust
-//! # #[macro_use] extern crate quick_error;
+//! # #[macro_use] extern crate quick_error2;
 //! # use std::io;
 //! # use std::fs::File;
 //! # use std::path::{Path, PathBuf};
 //! #
-//! use quick_error::ResultExt;
+//! use quick_error2::ResultExt;
 //!
 //! quick_error! {
 //!     #[derive(Debug)]
@@ -268,7 +268,7 @@
 //! wrapped by public structure:
 //!
 //! ```rust
-//! #[macro_use] extern crate quick_error;
+//! #[macro_use] extern crate quick_error2;
 //! # fn main() {}
 //!
 //! quick_error! {
