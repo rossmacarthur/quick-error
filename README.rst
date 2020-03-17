@@ -1,3 +1,23 @@
+=============
+Quick Error 2
+=============
+
+This is https://github.com/tailhook/quick-error but upgraded to Rust 2018 and
+support for ``Error::source()``. It has been published as ``quick-error2``. You
+can upgrade by updating your ``Cargo.toml`` to
+
+.. code-block:: toml
+
+    [dependencies]
+    quick-error = { package = "quick-error2", version = "2" }
+
+----
+Why?
+----
+
+Because there hasn't been a release yet of quick-error version 2.*
+:man_shrugging:.
+
 ===========
 Quick Error
 ===========
@@ -63,4 +83,3 @@ Unless you explicitly state otherwise, any contribution intentionally
 submitted for inclusion in the work by you, as defined in the Apache-2.0
 license, shall be dual licensed as above, without any additional terms or
 conditions.
-
